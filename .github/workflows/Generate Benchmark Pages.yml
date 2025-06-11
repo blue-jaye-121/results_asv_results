@@ -19,7 +19,6 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest  
-    defaults: 
     steps:
           - uses: actions/setup-python@v5  #sets up python with version 3.12
             with:
