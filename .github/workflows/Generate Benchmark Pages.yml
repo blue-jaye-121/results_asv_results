@@ -20,8 +20,6 @@ jobs:
   publish:
     runs-on: ubuntu-latest  
     defaults: 
-      run: 
-        working-directory: ./results #sets the default working directory to ./results 
     steps:
           - uses: actions/setup-python@v5  #sets up python with version 3.12
             with:
