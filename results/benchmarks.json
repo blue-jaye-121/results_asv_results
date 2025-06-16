@@ -48,7 +48,7 @@
         "warmup_time": -1
     },
     "bound_layer_turbulence_benchmarks.TimeSuite.time_brunt_vaisala_frequency": {
-        "code": "class TimeSuite:\n    def time_brunt_vaisala_frequency(self, timeSlice):\n        \"\"\"Benchmark Brunt Vaisala frequency calculation - on a grid\"\"\"\n        mpcalc.brunt_vaisala_frequency(self.timeSlice.height, self.timeSlice.theta);\n\n    def setup(self, ds):\n       self.timeSlice = ds.isel(time = 0)\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "code": "class TimeSuite:\n    def time_brunt_vaisala_frequency(self, timeSlice):\n        \"\"\"Benchmark Brunt Vaisala frequency calculation on a cube\"\"\"\n        mpcalc.brunt_vaisala_frequency(self.timeSlice.height, self.timeSlice.theta);\n\n    def setup(self, ds):\n       self.timeSlice = ds.isel(time = 0)\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
         "min_run_count": 2,
         "name": "bound_layer_turbulence_benchmarks.TimeSuite.time_brunt_vaisala_frequency",
         "number": 0,
@@ -63,8 +63,24 @@
         "version": "2025.06.06",
         "warmup_time": -1
     },
+    "bound_layer_turbulence_benchmarks.TimeSuite.time_brunt_vaisala_period": {
+        "code": "class TimeSuite:\n    def time_brunt_vaisala_period(self, timeSlice):\n        \"\"\"Benchmark Brunt Vaisala frequency calculation on a cube\"\"\"\n        mpcalc.brunt_vaisala_period(self.timeSlice.height, self.timeSlice.theta);\n\n    def setup(self, ds):\n       self.timeSlice = ds.isel(time = 0)\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "min_run_count": 2,
+        "name": "bound_layer_turbulence_benchmarks.TimeSuite.time_brunt_vaisala_period",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "bound_layer_turbulence_benchmarks:13",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.06",
+        "warmup_time": -1
+    },
     "bound_layer_turbulence_benchmarks.TimeSuite.time_gradient_richardson_number": {
-        "code": "class TimeSuite:\n    def time_gradient_richardson_number(self, timeSlice):\n        \"\"\"Benchmark Gradient Richardson Number on a grid\"\"\"\n        mpcalc.gradient_richardson_number(self.timeSlice.height, self.timeSlice.theta,\n                                         self.timeSlice.uwind, self.timeSlice.vwind)\n\n    def setup(self, ds):\n       self.timeSlice = ds.isel(time = 0)\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "code": "class TimeSuite:\n    def time_gradient_richardson_number(self, timeSlice):\n        \"\"\"Benchmark Gradient Richardson Number on a cube\"\"\"\n        mpcalc.gradient_richardson_number(self.timeSlice.height, self.timeSlice.theta,\n                                         self.timeSlice.uwind, self.timeSlice.vwind)\n\n    def setup(self, ds):\n       self.timeSlice = ds.isel(time = 0)\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
         "min_run_count": 2,
         "name": "bound_layer_turbulence_benchmarks.TimeSuite.time_gradient_richardson_number",
         "number": 0,
@@ -80,7 +96,7 @@
         "warmup_time": -1
     },
     "bound_layer_turbulence_benchmarks.TimeSuite.time_tke": {
-        "code": "class TimeSuite:\n    def time_tke(self, ds):\n        \"\"\"Benchmarking turbulent kinetic energy calculation\"\"\"\n        mpcalc.tke(ds.uwind.values * units('m/s'), ds.vwind.values* units('m/s'), ds.wwind.values * units('m/s'))\n\n    def setup(self, ds):\n       self.timeSlice = ds.isel(time = 0)\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "code": "class TimeSuite:\n    def time_tke(self, ds):\n        \"\"\"Benchmarking turbulent kinetic energy calculation on a cube\"\"\"\n        mpcalc.tke(ds.uwind.values * units('m/s'), ds.vwind.values* units('m/s'), ds.wwind.values * units('m/s'))\n\n    def setup(self, ds):\n       self.timeSlice = ds.isel(time = 0)\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
         "min_run_count": 2,
         "name": "bound_layer_turbulence_benchmarks.TimeSuite.time_tke",
         "number": 0,
@@ -572,7 +588,7 @@
         "setup_cache_key": "moist_thermo_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.09",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "moist_thermo_benchmarks.TimeSuite.time_dewpoint_from_rh": {
@@ -588,7 +604,55 @@
         "setup_cache_key": "moist_thermo_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.09",
+        "version": "2025.06.16",
+        "warmup_time": -1
+    },
+    "moist_thermo_benchmarks.TimeSuite.time_dewpoint_from_specific_humidity": {
+        "code": "class TimeSuite:\n    def time_dewpoint_from_specific_humidity(self, timeSlice):\n        \"\"\"Benchmarking dewpoint from specific humidity calculation on a 3d cube\"\"\"\n        mpcalc.dewpoint_from_specific_humidity(self.timeSlice.pressure, self.timeSlice.temperature,\n                                               self.timeSlice.specific_humidity);\n\n    def setup(self, ds):\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       self.upperSlice = ds.isel(pressure = 49, time = 0)\n       self.profileSlice = ds.isel(time = 0, lat = 25, lon = 25)\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "min_run_count": 2,
+        "name": "moist_thermo_benchmarks.TimeSuite.time_dewpoint_from_specific_humidity",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "moist_thermo_benchmarks:11",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.16",
+        "warmup_time": -1
+    },
+    "moist_thermo_benchmarks.TimeSuite.time_moist_air_poisson_exponent": {
+        "code": "class TimeSuite:\n    def time_moist_air_poisson_exponent(self, timeSlice):\n        \"\"\"Benchmarking moist air poisson exponent calculation on a cube\"\"\"\n        mpcalc.moist_air_poisson_exponent(self.timeSlice.specific_humidity);\n\n    def setup(self, ds):\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       self.upperSlice = ds.isel(pressure = 49, time = 0)\n       self.profileSlice = ds.isel(time = 0, lat = 25, lon = 25)\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "min_run_count": 2,
+        "name": "moist_thermo_benchmarks.TimeSuite.time_moist_air_poisson_exponent",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "moist_thermo_benchmarks:11",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.16",
+        "warmup_time": -1
+    },
+    "moist_thermo_benchmarks.TimeSuite.time_moist_air_specific_heat_pressure": {
+        "code": "class TimeSuite:\n    def time_moist_air_specific_heat_pressure(self, timeSlice):\n        \"\"\"Benchmarking moist air specific heat pressure calculation on a 3d cube\"\"\"\n        mpcalc.moist_air_specific_heat_pressure(self.timeSlice.specific_humidity);\n\n    def setup(self, ds):\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       self.upperSlice = ds.isel(pressure = 49, time = 0)\n       self.profileSlice = ds.isel(time = 0, lat = 25, lon = 25)\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "min_run_count": 2,
+        "name": "moist_thermo_benchmarks.TimeSuite.time_moist_air_specific_heat_pressure",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "moist_thermo_benchmarks:11",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "moist_thermo_benchmarks.TimeSuite.time_moist_static_energy": {
@@ -604,7 +668,7 @@
         "setup_cache_key": "moist_thermo_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.09",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "moist_thermo_benchmarks.TimeSuite.time_precipitable_water": {
@@ -620,7 +684,7 @@
         "setup_cache_key": "moist_thermo_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.09",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "moist_thermo_benchmarks.TimeSuite.time_relative_humidity_from_dewpoint": {
@@ -636,7 +700,39 @@
         "setup_cache_key": "moist_thermo_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.09",
+        "version": "2025.06.16",
+        "warmup_time": -1
+    },
+    "moist_thermo_benchmarks.TimeSuite.time_relative_humidity_from_specific_humidity": {
+        "code": "class TimeSuite:\n    def time_relative_humidity_from_specific_humidity(self, timeSlice):\n        \"\"\"Benchmarking relative humidity from specific humidity calculation on a 3d cube\"\"\"\n        mpcalc.relative_humidity_from_specific_humidity(self.timeSlice.pressure, self.timeSlice.temperature,\n                                                        self.timeSlice.specific_humidity);\n\n    def setup(self, ds):\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       self.upperSlice = ds.isel(pressure = 49, time = 0)\n       self.profileSlice = ds.isel(time = 0, lat = 25, lon = 25)\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "min_run_count": 2,
+        "name": "moist_thermo_benchmarks.TimeSuite.time_relative_humidity_from_specific_humidity",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "moist_thermo_benchmarks:11",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.16",
+        "warmup_time": -1
+    },
+    "moist_thermo_benchmarks.TimeSuite.time_relative_humidity_wet_psychrometric": {
+        "code": "class TimeSuite:\n    def time_relative_humidity_wet_psychrometric(self, timeSlice):\n        \"\"\"Benchmarking the relative humidity from psychometric calculation on a cube\"\"\"\n        mpcalc.relative_humidity_wet_psychrometric(self.timeSlice.pressure, self.timeSlice.temperature,\n                                                   self.timeSlice.wet_bulb_temperature);\n\n    def setup(self, ds):\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       self.upperSlice = ds.isel(pressure = 49, time = 0)\n       self.profileSlice = ds.isel(time = 0, lat = 25, lon = 25)\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "min_run_count": 2,
+        "name": "moist_thermo_benchmarks.TimeSuite.time_relative_humidity_wet_psychrometric",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "moist_thermo_benchmarks:11",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "moist_thermo_benchmarks.TimeSuite.time_rh_from_mixing_ratio": {
@@ -652,7 +748,23 @@
         "setup_cache_key": "moist_thermo_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.09",
+        "version": "2025.06.16",
+        "warmup_time": -1
+    },
+    "moist_thermo_benchmarks.TimeSuite.time_saturation_equivalent_potential_temperature": {
+        "code": "class TimeSuite:\n    def time_saturation_equivalent_potential_temperature(self, timeSlice):\n        \"\"\"Benchmarking saturation equivalent potential temperature on 3d cube\"\"\"\n        mpcalc.saturation_equivalent_potential_temperature(self.timeSlice.pressure, self.timeSlice.temperature);\n\n    def setup(self, ds):\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       self.upperSlice = ds.isel(pressure = 49, time = 0)\n       self.profileSlice = ds.isel(time = 0, lat = 25, lon = 25)\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "min_run_count": 2,
+        "name": "moist_thermo_benchmarks.TimeSuite.time_saturation_equivalent_potential_temperature",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "moist_thermo_benchmarks:11",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "moist_thermo_benchmarks.TimeSuite.time_saturation_vapor_pressure": {
@@ -668,7 +780,7 @@
         "setup_cache_key": "moist_thermo_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.09",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "moist_thermo_benchmarks.TimeSuite.time_scale_height": {
@@ -684,7 +796,7 @@
         "setup_cache_key": "moist_thermo_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.09",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "moist_thermo_benchmarks.TimeSuite.time_specific_humidity_from_dewpoint": {
@@ -700,7 +812,55 @@
         "setup_cache_key": "moist_thermo_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.09",
+        "version": "2025.06.16",
+        "warmup_time": -1
+    },
+    "moist_thermo_benchmarks.TimeSuite.time_thickness_hydrostatic_from_relative_humidity": {
+        "code": "class TimeSuite:\n    def time_thickness_hydrostatic_from_relative_humidity(self, profileSlice):\n        \"\"\"Benchmarking thickness hydrostatic calculation from relative humidity on one profile\"\"\"\n        mpcalc.thickness_hydrostatic_from_relative_humidity(self.profileSlice.pressure, self.profileSlice.temperature,\n                                                            self.profileSlice.relative_humidity);\n\n    def setup(self, ds):\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       self.upperSlice = ds.isel(pressure = 49, time = 0)\n       self.profileSlice = ds.isel(time = 0, lat = 25, lon = 25)\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "min_run_count": 2,
+        "name": "moist_thermo_benchmarks.TimeSuite.time_thickness_hydrostatic_from_relative_humidity",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "moist_thermo_benchmarks:11",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.16",
+        "warmup_time": -1
+    },
+    "moist_thermo_benchmarks.TimeSuite.time_vertical_velocity": {
+        "code": "class TimeSuite:\n    def time_vertical_velocity(self, timeSlice):\n        \"\"\"Benchmarking vertical velocity calculation on a 3d cube\"\"\"\n        mpcalc.vertical_velocity(self.timeSlice.omega, self.timeSlice.pressure, self.timeSlice.temperature,\n                                 self.timeSlice.mixing_ratio);\n\n    def setup(self, ds):\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       self.upperSlice = ds.isel(pressure = 49, time = 0)\n       self.profileSlice = ds.isel(time = 0, lat = 25, lon = 25)\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "min_run_count": 2,
+        "name": "moist_thermo_benchmarks.TimeSuite.time_vertical_velocity",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "moist_thermo_benchmarks:11",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.16",
+        "warmup_time": -1
+    },
+    "moist_thermo_benchmarks.TimeSuite.time_vertical_velocity_pressure": {
+        "code": "class TimeSuite:\n    def time_vertical_velocity_pressure(self, timeSlice):\n        \"\"\"Benchmarking vertical velocity wrt pressure calculation on a 3d cube\"\"\"\n        mpcalc.vertical_velocity_pressure(self.timeSlice.wwind, self.timeSlice.pressure, self.timeSlice.temperature,\n                                          self.timeSlice.mixing_ratio);\n\n    def setup(self, ds):\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       self.upperSlice = ds.isel(pressure = 49, time = 0)\n       self.profileSlice = ds.isel(time = 0, lat = 25, lon = 25)\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "min_run_count": 2,
+        "name": "moist_thermo_benchmarks.TimeSuite.time_vertical_velocity_pressure",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "moist_thermo_benchmarks:11",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "moist_thermo_benchmarks.TimeSuite.time_virtual_temperature": {
@@ -716,7 +876,7 @@
         "setup_cache_key": "moist_thermo_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.09",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "moist_thermo_benchmarks.TimeSuite.time_water_latent_heat_melting": {
@@ -732,7 +892,7 @@
         "setup_cache_key": "moist_thermo_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.09",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "moist_thermo_benchmarks.TimeSuite.time_water_latent_heat_sublimation": {
@@ -748,7 +908,7 @@
         "setup_cache_key": "moist_thermo_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.09",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "moist_thermo_benchmarks.TimeSuite.time_water_latent_heat_vaporization": {
@@ -764,7 +924,23 @@
         "setup_cache_key": "moist_thermo_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.09",
+        "version": "2025.06.16",
+        "warmup_time": -1
+    },
+    "moist_thermo_benchmarks.TimeSuite.time_wet_bulb_potential_temperature": {
+        "code": "class TimeSuite:\n    def time_wet_bulb_potential_temperature(self, timeSlice):\n        \"\"\"Benchmarking the wet bulb potential temperature calculation on a 3d cube\"\"\"\n        mpcalc.wet_bulb_potential_temperature(self.timeSlice.pressure, self.timeSlice.temperature,\n                                              self.timeSlice.dewpoint);\n\n    def setup(self, ds):\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       self.upperSlice = ds.isel(pressure = 49, time = 0)\n       self.profileSlice = ds.isel(time = 0, lat = 25, lon = 25)\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "min_run_count": 2,
+        "name": "moist_thermo_benchmarks.TimeSuite.time_wet_bulb_potential_temperature",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "moist_thermo_benchmarks:11",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "moist_thermo_benchmarks.TimeSuite.time_wet_bulb_temperature": {
@@ -780,7 +956,7 @@
         "setup_cache_key": "moist_thermo_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.09",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "other_benchmarks.TimeSuite.time_find_intersections": {
@@ -793,7 +969,7 @@
         "repeat": 0,
         "rounds": 2,
         "sample_time": 0.01,
-        "setup_cache_key": "other_benchmarks:11",
+        "setup_cache_key": "other_benchmarks:12",
         "type": "time",
         "unit": "seconds",
         "version": "2025.06.11",
@@ -809,7 +985,7 @@
         "repeat": 0,
         "rounds": 2,
         "sample_time": 0.01,
-        "setup_cache_key": "other_benchmarks:11",
+        "setup_cache_key": "other_benchmarks:12",
         "type": "time",
         "unit": "seconds",
         "version": "2025.06.11",
@@ -825,7 +1001,23 @@
         "repeat": 0,
         "rounds": 2,
         "sample_time": 0.01,
-        "setup_cache_key": "other_benchmarks:11",
+        "setup_cache_key": "other_benchmarks:12",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.11",
+        "warmup_time": -1
+    },
+    "other_benchmarks.TimeSuite.time_isentropic_interpolation_as_dataset": {
+        "code": "class TimeSuite:\n    def time_isentropic_interpolation_as_dataset(self, profileSlice):\n        \"\"\"Benchmarking the isentropic interpolation as dataset calculation on a 3d grid\"\"\"\n        mpcalc.isentropic_interpolation_as_dataset(self.profileSlice.theta[0], self.profileSlice.temperature);\n\n    def setup(self, ds):\n       self.ds = ds;\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       self.lineSlice = ds.isel(pressure = 0, time = 0, lat = 0);\n       self.profileSlice = ds.isel(time = 0, lat = 0, lon = 0)\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "min_run_count": 2,
+        "name": "other_benchmarks.TimeSuite.time_isentropic_interpolation_as_dataset",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "other_benchmarks:12",
         "type": "time",
         "unit": "seconds",
         "version": "2025.06.11",
@@ -841,7 +1033,7 @@
         "repeat": 0,
         "rounds": 2,
         "sample_time": 0.01,
-        "setup_cache_key": "other_benchmarks:11",
+        "setup_cache_key": "other_benchmarks:12",
         "type": "time",
         "unit": "seconds",
         "version": "2025.06.11",
@@ -956,7 +1148,7 @@
         "setup_cache_key": "soundings_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.13",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "soundings_benchmarks.TimeSuite.time_bunkers_storm_motion": {
@@ -972,7 +1164,7 @@
         "setup_cache_key": "soundings_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.13",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "soundings_benchmarks.TimeSuite.time_cape_cin": {
@@ -988,7 +1180,7 @@
         "setup_cache_key": "soundings_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.13",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "soundings_benchmarks.TimeSuite.time_ccl": {
@@ -1004,7 +1196,7 @@
         "setup_cache_key": "soundings_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.13",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "soundings_benchmarks.TimeSuite.time_corfidi_storm_motion": {
@@ -1020,7 +1212,7 @@
         "setup_cache_key": "soundings_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.13",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "soundings_benchmarks.TimeSuite.time_critical_angle": {
@@ -1036,7 +1228,39 @@
         "setup_cache_key": "soundings_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.13",
+        "version": "2025.06.16",
+        "warmup_time": -1
+    },
+    "soundings_benchmarks.TimeSuite.time_cross_totals": {
+        "code": "class TimeSuite:\n    def time_cross_totals(self, timeSlice):\n        \"\"\"Benchmarking cross totals calculation on many profiles\"\"\"\n        mpcalc.cross_totals(self.timeSlice.pressure, self.timeSlice.temperature,\n                            self.timeSlice.dewpoint)\n\n    def setup(self, ds):\n        self.timeSlice = ds.isel(time = 0)\n        self.profileSlice = ds.isel(lat = 25, lon = 25, time = 0)\n        self.parcelProfile = mpcalc.parcel_profile(self.profileSlice.pressure,\n                                                  self.profileSlice.temperature[0],\n                                                  self.profileSlice.dewpoint[0]);\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "min_run_count": 2,
+        "name": "soundings_benchmarks.TimeSuite.time_cross_totals",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "soundings_benchmarks:11",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.16",
+        "warmup_time": -1
+    },
+    "soundings_benchmarks.TimeSuite.time_downdraft_cape": {
+        "code": "class TimeSuite:\n    def time_downdraft_cape(self, profileSlice):\n        \"\"\"Benchmarking downdraft cape calculation on one profile\"\"\"\n        mpcalc.downdraft_cape(self.profileSlice.pressure, self.profileSlice.temperature, self.profileSlice.dewpoint);\n\n    def setup(self, ds):\n        self.timeSlice = ds.isel(time = 0)\n        self.profileSlice = ds.isel(lat = 25, lon = 25, time = 0)\n        self.parcelProfile = mpcalc.parcel_profile(self.profileSlice.pressure,\n                                                  self.profileSlice.temperature[0],\n                                                  self.profileSlice.dewpoint[0]);\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "min_run_count": 2,
+        "name": "soundings_benchmarks.TimeSuite.time_downdraft_cape",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "soundings_benchmarks:11",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "soundings_benchmarks.TimeSuite.time_el": {
@@ -1052,7 +1276,23 @@
         "setup_cache_key": "soundings_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.13",
+        "version": "2025.06.16",
+        "warmup_time": -1
+    },
+    "soundings_benchmarks.TimeSuite.time_k_index": {
+        "code": "class TimeSuite:\n    def time_k_index(self, timeSlice):\n        \"\"\"Benchmarking k index calculation on many profiles\"\"\"\n        mpcalc.k_index(self.timeSlice.pressure, self.timeSlice.temperature, self.timeSlice.dewpoint);\n\n    def setup(self, ds):\n        self.timeSlice = ds.isel(time = 0)\n        self.profileSlice = ds.isel(lat = 25, lon = 25, time = 0)\n        self.parcelProfile = mpcalc.parcel_profile(self.profileSlice.pressure,\n                                                  self.profileSlice.temperature[0],\n                                                  self.profileSlice.dewpoint[0]);\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "min_run_count": 2,
+        "name": "soundings_benchmarks.TimeSuite.time_k_index",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "soundings_benchmarks:11",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "soundings_benchmarks.TimeSuite.time_lcl": {
@@ -1068,7 +1308,55 @@
         "setup_cache_key": "soundings_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.13",
+        "version": "2025.06.16",
+        "warmup_time": -1
+    },
+    "soundings_benchmarks.TimeSuite.time_lifted_index": {
+        "code": "class TimeSuite:\n    def time_lifted_index(self, profileSlice):\n        \"\"\"Benchmarking lifted index calculation on one profile\"\"\"\n        mpcalc.lifted_index(self.profileSlice.pressure, self.profileSlice.temperature,\n                            self.parcelProfile);\n\n    def setup(self, ds):\n        self.timeSlice = ds.isel(time = 0)\n        self.profileSlice = ds.isel(lat = 25, lon = 25, time = 0)\n        self.parcelProfile = mpcalc.parcel_profile(self.profileSlice.pressure,\n                                                  self.profileSlice.temperature[0],\n                                                  self.profileSlice.dewpoint[0]);\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "min_run_count": 2,
+        "name": "soundings_benchmarks.TimeSuite.time_lifted_index",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "soundings_benchmarks:11",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.16",
+        "warmup_time": -1
+    },
+    "soundings_benchmarks.TimeSuite.time_mixed_layer_cape_cin": {
+        "code": "class TimeSuite:\n    def time_mixed_layer_cape_cin(self, profileSlice):\n        \"\"\"Benchmarking mixed layer cape cin calculation for one profile\"\"\"\n        mpcalc.mixed_layer_cape_cin(self.profileSlice.pressure, self.profileSlice.temperature,\n                                    self.profileSlice.dewpoint);\n\n    def setup(self, ds):\n        self.timeSlice = ds.isel(time = 0)\n        self.profileSlice = ds.isel(lat = 25, lon = 25, time = 0)\n        self.parcelProfile = mpcalc.parcel_profile(self.profileSlice.pressure,\n                                                  self.profileSlice.temperature[0],\n                                                  self.profileSlice.dewpoint[0]);\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "min_run_count": 2,
+        "name": "soundings_benchmarks.TimeSuite.time_mixed_layer_cape_cin",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "soundings_benchmarks:11",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.16",
+        "warmup_time": -1
+    },
+    "soundings_benchmarks.TimeSuite.time_most_unstable_cape_cin": {
+        "code": "class TimeSuite:\n    def time_most_unstable_cape_cin(self, profileSlice):\n        \"\"\"Benchmarking most unstable cape cin calculation on one profile\"\"\"\n        mpcalc.most_unstable_cape_cin(self.profileSlice.pressure, self.profileSlice.temperature,\n                                      self.profileSlice.dewpoint);\n\n    def setup(self, ds):\n        self.timeSlice = ds.isel(time = 0)\n        self.profileSlice = ds.isel(lat = 25, lon = 25, time = 0)\n        self.parcelProfile = mpcalc.parcel_profile(self.profileSlice.pressure,\n                                                  self.profileSlice.temperature[0],\n                                                  self.profileSlice.dewpoint[0]);\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "min_run_count": 2,
+        "name": "soundings_benchmarks.TimeSuite.time_most_unstable_cape_cin",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "soundings_benchmarks:11",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "soundings_benchmarks.TimeSuite.time_most_unstable_parcel": {
@@ -1084,7 +1372,7 @@
         "setup_cache_key": "soundings_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.13",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "soundings_benchmarks.TimeSuite.time_parcel_profile": {
@@ -1100,7 +1388,7 @@
         "setup_cache_key": "soundings_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.13",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "soundings_benchmarks.TimeSuite.time_storm_relative_helicity": {
@@ -1116,7 +1404,7 @@
         "setup_cache_key": "soundings_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.13",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "soundings_benchmarks.TimeSuite.time_supercell_composite": {
@@ -1132,7 +1420,23 @@
         "setup_cache_key": "soundings_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.13",
+        "version": "2025.06.16",
+        "warmup_time": -1
+    },
+    "soundings_benchmarks.TimeSuite.time_surface_based_cape_cin": {
+        "code": "class TimeSuite:\n    def time_surface_based_cape_cin(self, profileSlice):\n        \"\"\"Benchmarking surface based cape cin calculation on one profile\"\"\"\n        mpcalc.surface_based_cape_cin(self.profileSlice.pressure, self.profileSlice.temperature,\n                                      self.profileSlice.dewpoint);\n\n    def setup(self, ds):\n        self.timeSlice = ds.isel(time = 0)\n        self.profileSlice = ds.isel(lat = 25, lon = 25, time = 0)\n        self.parcelProfile = mpcalc.parcel_profile(self.profileSlice.pressure,\n                                                  self.profileSlice.temperature[0],\n                                                  self.profileSlice.dewpoint[0]);\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       return ds;",
+        "min_run_count": 2,
+        "name": "soundings_benchmarks.TimeSuite.time_surface_based_cape_cin",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "soundings_benchmarks:11",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "soundings_benchmarks.TimeSuite.time_sweat_index": {
@@ -1148,7 +1452,7 @@
         "setup_cache_key": "soundings_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.13",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "soundings_benchmarks.TimeSuite.time_vertical_totals": {
@@ -1164,7 +1468,7 @@
         "setup_cache_key": "soundings_benchmarks:11",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.13",
+        "version": "2025.06.16",
         "warmup_time": -1
     },
     "std_atm_benchmarks.TimeSuite.time_altimeter_to_sea_level_pressure": {
