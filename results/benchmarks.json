@@ -351,6 +351,22 @@
         "version": "2025.06.17",
         "warmup_time": -1
     },
+    "dyn_kin_benchmarks.TimeSuite.time_coriolis_parameter": {
+        "code": "class TimeSuite:\n    def time_coriolis_parameter(self, timeSlice):\n        \"\"\"Benchmarking coriolis parameter calculation on a 3d cube\"\"\"\n        mpcalc.coriolis_parameter(self.timeSlice.lat);\n\n    def setup(self, ds):\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       self.profileSlice = ds.isel(time = 0, lat = 0, lon = 0)\n       start = (30., 260.)\n       end = (40., 270.)\n       self.cross = mpinter.cross_section(self.timeSlice, start, end).set_coords(('lat', 'lon'))\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       ds = ds.metpy.parse_cf();\n       return ds;",
+        "min_run_count": 2,
+        "name": "dyn_kin_benchmarks.TimeSuite.time_coriolis_parameter",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "dyn_kin_benchmarks:14",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.17",
+        "warmup_time": -1
+    },
     "dyn_kin_benchmarks.TimeSuite.time_curvature_vorticity": {
         "code": "class TimeSuite:\n    def time_curvature_vorticity(self, timeSlice):\n        \"\"\"Benchmarking the curvature vorticity calculation on a 3d cube\"\"\"\n        mpcalc.curvature_vorticity(self.timeSlice.uwind, self.timeSlice.vwind);\n\n    def setup(self, ds):\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       self.profileSlice = ds.isel(time = 0, lat = 0, lon = 0)\n       start = (30., 260.)\n       end = (40., 270.)\n       self.cross = mpinter.cross_section(self.timeSlice, start, end).set_coords(('lat', 'lon'))\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       ds = ds.metpy.parse_cf();\n       return ds;",
         "min_run_count": 2,
@@ -367,10 +383,42 @@
         "version": "2025.06.17",
         "warmup_time": -1
     },
+    "dyn_kin_benchmarks.TimeSuite.time_divergence": {
+        "code": "class TimeSuite:\n    def time_divergence(self, timeSlice):\n        \"\"\"Benchmarking divergence on a 3d cube\"\"\"\n        mpcalc.divergence(self.timeSlice.uwind, self.timeSlice.vwind);\n\n    def setup(self, ds):\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       self.profileSlice = ds.isel(time = 0, lat = 0, lon = 0)\n       start = (30., 260.)\n       end = (40., 270.)\n       self.cross = mpinter.cross_section(self.timeSlice, start, end).set_coords(('lat', 'lon'))\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       ds = ds.metpy.parse_cf();\n       return ds;",
+        "min_run_count": 2,
+        "name": "dyn_kin_benchmarks.TimeSuite.time_divergence",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "dyn_kin_benchmarks:14",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.17",
+        "warmup_time": -1
+    },
     "dyn_kin_benchmarks.TimeSuite.time_frontogenesis": {
         "code": "class TimeSuite:\n    def time_frontogenesis(self, pressureSlice):\n        \"\"\"Benchmarking the calculation of frontogenesis of a 2d field\"\"\"\n        mpcalc.frontogenesis(self.pressureSlice.theta, self.pressureSlice.uwind, self.pressureSlice.vwind);\n\n    def setup(self, ds):\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       self.profileSlice = ds.isel(time = 0, lat = 0, lon = 0)\n       start = (30., 260.)\n       end = (40., 270.)\n       self.cross = mpinter.cross_section(self.timeSlice, start, end).set_coords(('lat', 'lon'))\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       ds = ds.metpy.parse_cf();\n       return ds;",
         "min_run_count": 2,
         "name": "dyn_kin_benchmarks.TimeSuite.time_frontogenesis",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "dyn_kin_benchmarks:14",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.17",
+        "warmup_time": -1
+    },
+    "dyn_kin_benchmarks.TimeSuite.time_geostrophic_wind": {
+        "code": "class TimeSuite:\n    def time_geostrophic_wind(self, timeSlice):\n        \"\"\"Benchmarking the geostrophic wind calculation on a 3d cube\"\"\"\n        mpcalc.geostrophic_wind(self.timeSlice.height, latitude = self.timeSlice.lat)\n\n    def setup(self, ds):\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       self.profileSlice = ds.isel(time = 0, lat = 0, lon = 0)\n       start = (30., 260.)\n       end = (40., 270.)\n       self.cross = mpinter.cross_section(self.timeSlice, start, end).set_coords(('lat', 'lon'))\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       ds = ds.metpy.parse_cf();\n       return ds;",
+        "min_run_count": 2,
+        "name": "dyn_kin_benchmarks.TimeSuite.time_geostrophic_wind",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -479,6 +527,38 @@
         "version": "2025.06.17",
         "warmup_time": -1
     },
+    "dyn_kin_benchmarks.TimeSuite.time_shearing_deformation": {
+        "code": "class TimeSuite:\n    def time_shearing_deformation(self, timeSlice):\n        \"\"\"Benchmarking shearing deformation on a 3d cube\"\"\"\n        mpcalc.shearing_deformation(self.timeSlice.uwind, self.timeSlice.vwind);\n\n    def setup(self, ds):\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       self.profileSlice = ds.isel(time = 0, lat = 0, lon = 0)\n       start = (30., 260.)\n       end = (40., 270.)\n       self.cross = mpinter.cross_section(self.timeSlice, start, end).set_coords(('lat', 'lon'))\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       ds = ds.metpy.parse_cf();\n       return ds;",
+        "min_run_count": 2,
+        "name": "dyn_kin_benchmarks.TimeSuite.time_shearing_deformation",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "dyn_kin_benchmarks:14",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.17",
+        "warmup_time": -1
+    },
+    "dyn_kin_benchmarks.TimeSuite.time_stretching_deformation": {
+        "code": "class TimeSuite:\n    def time_stretching_deformation(self, timeSlice):\n        \"\"\"Benchmarking stretching deformation on a 3d cube\"\"\"\n        mpcalc.stretching_deformation(self.timeSlice.uwind, self.timeSlice.vwind);\n\n    def setup(self, ds):\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       self.profileSlice = ds.isel(time = 0, lat = 0, lon = 0)\n       start = (30., 260.)\n       end = (40., 270.)\n       self.cross = mpinter.cross_section(self.timeSlice, start, end).set_coords(('lat', 'lon'))\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       ds = ds.metpy.parse_cf();\n       return ds;",
+        "min_run_count": 2,
+        "name": "dyn_kin_benchmarks.TimeSuite.time_stretching_deformation",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "dyn_kin_benchmarks:14",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.17",
+        "warmup_time": -1
+    },
     "dyn_kin_benchmarks.TimeSuite.time_total_deformation": {
         "code": "class TimeSuite:\n    def time_total_deformation(self, pressureSlice):\n        \"\"\"Benchmarking total deformation calculation on a 2d slice\"\"\"\n        mpcalc.total_deformation(self.pressureSlice.uwind, self.pressureSlice.vwind);\n\n    def setup(self, ds):\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       self.profileSlice = ds.isel(time = 0, lat = 0, lon = 0)\n       start = (30., 260.)\n       end = (40., 270.)\n       self.cross = mpinter.cross_section(self.timeSlice, start, end).set_coords(('lat', 'lon'))\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       ds = ds.metpy.parse_cf();\n       return ds;",
         "min_run_count": 2,
@@ -556,7 +636,7 @@
         "setup_cache_key": "math_fctn_benchmarks:12",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.17",
+        "version": "2025.06.19",
         "warmup_time": -1
     },
     "math_fctn_benchmarks.TimeSuite.time_geospatial_gradient": {
@@ -572,7 +652,7 @@
         "setup_cache_key": "math_fctn_benchmarks:12",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.17",
+        "version": "2025.06.19",
         "warmup_time": -1
     },
     "math_fctn_benchmarks.TimeSuite.time_geospatial_laplacian": {
@@ -588,7 +668,7 @@
         "setup_cache_key": "math_fctn_benchmarks:12",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.17",
+        "version": "2025.06.19",
         "warmup_time": -1
     },
     "math_fctn_benchmarks.TimeSuite.time_gradient": {
@@ -604,7 +684,23 @@
         "setup_cache_key": "math_fctn_benchmarks:12",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.17",
+        "version": "2025.06.19",
+        "warmup_time": -1
+    },
+    "math_fctn_benchmarks.TimeSuite.time_normal_component": {
+        "code": "class TimeSuite:\n    def time_normal_component(self, cross):\n        \"\"\"Benchmarking the calculating normal components times\"\"\"\n        mpcalc.normal_component(self.cross.uwind, self.cross.vwind);\n\n    def setup(self, ds):\n       self.pressureSlice = ds.isel(pressure = 0, time = 0)\n       self.timeSlice = ds.isel(time = 0)\n       start = (30., 260.)\n       end = (40., 270.)\n       self.cross = mpinter.cross_section(self.timeSlice, start, end).set_coords(('lat', 'lon'))\n\n    def setup_cache(self):\n       base_path = os.path.dirname(__file__) # path to current file\n       file_path = os.path.join(base_path, \"..\", \"data_array_compressed.nc\");\n       file_path = os.path.abspath(file_path)\n       ds = xr.open_dataset(file_path)\n       ds = ds.metpy.parse_cf()\n       return ds;",
+        "min_run_count": 2,
+        "name": "math_fctn_benchmarks.TimeSuite.time_normal_component",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "repeat": 0,
+        "rounds": 2,
+        "sample_time": 0.01,
+        "setup_cache_key": "math_fctn_benchmarks:12",
+        "type": "time",
+        "unit": "seconds",
+        "version": "2025.06.19",
         "warmup_time": -1
     },
     "math_fctn_benchmarks.TimeSuite.time_tangential_component": {
@@ -620,7 +716,7 @@
         "setup_cache_key": "math_fctn_benchmarks:12",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.17",
+        "version": "2025.06.19",
         "warmup_time": -1
     },
     "math_fctn_benchmarks.TimeSuite.time_vector_derivative": {
@@ -636,7 +732,7 @@
         "setup_cache_key": "math_fctn_benchmarks:12",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.06.17",
+        "version": "2025.06.19",
         "warmup_time": -1
     },
     "moist_thermo_benchmarks.TimeSuite.time_dewpoint": {
