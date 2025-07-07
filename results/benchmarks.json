@@ -124,7 +124,7 @@
         "setup_cache_key": "dry_thermo_benchmarks:30",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.07.02",
+        "version": "2025.07.07",
         "warmup_time": -1
     },
     "dry_thermo_benchmarks.TimeSuite.time_add_pressure_to_height": {
@@ -140,7 +140,7 @@
         "setup_cache_key": "dry_thermo_benchmarks:30",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.07.02",
+        "version": "2025.07.07",
         "warmup_time": -1
     },
     "dry_thermo_benchmarks.TimeSuite.time_density": {
@@ -156,7 +156,7 @@
         "setup_cache_key": "dry_thermo_benchmarks:30",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.07.02",
+        "version": "2025.07.07",
         "warmup_time": -1
     },
     "dry_thermo_benchmarks.TimeSuite.time_dry_lapse": {
@@ -172,7 +172,7 @@
         "setup_cache_key": "dry_thermo_benchmarks:30",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.07.02",
+        "version": "2025.07.07",
         "warmup_time": -1
     },
     "dry_thermo_benchmarks.TimeSuite.time_dry_static_energy": {
@@ -188,7 +188,7 @@
         "setup_cache_key": "dry_thermo_benchmarks:30",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.07.02",
+        "version": "2025.07.07",
         "warmup_time": -1
     },
     "dry_thermo_benchmarks.TimeSuite.time_geopotential_to_height": {
@@ -204,7 +204,7 @@
         "setup_cache_key": "dry_thermo_benchmarks:30",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.07.02",
+        "version": "2025.07.07",
         "warmup_time": -1
     },
     "dry_thermo_benchmarks.TimeSuite.time_height_to_geopotential": {
@@ -220,7 +220,7 @@
         "setup_cache_key": "dry_thermo_benchmarks:30",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.07.02",
+        "version": "2025.07.07",
         "warmup_time": -1
     },
     "dry_thermo_benchmarks.TimeSuite.time_mean_pressure_weighted": {
@@ -236,7 +236,7 @@
         "setup_cache_key": "dry_thermo_benchmarks:30",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.07.02",
+        "version": "2025.07.07",
         "warmup_time": -1
     },
     "dry_thermo_benchmarks.TimeSuite.time_potential_temperature": {
@@ -252,7 +252,7 @@
         "setup_cache_key": "dry_thermo_benchmarks:30",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.07.02",
+        "version": "2025.07.07",
         "warmup_time": -1
     },
     "dry_thermo_benchmarks.TimeSuite.time_sigma_to_pressure": {
@@ -268,7 +268,7 @@
         "setup_cache_key": "dry_thermo_benchmarks:30",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.07.02",
+        "version": "2025.07.07",
         "warmup_time": -1
     },
     "dry_thermo_benchmarks.TimeSuite.time_static_stability": {
@@ -284,7 +284,7 @@
         "setup_cache_key": "dry_thermo_benchmarks:30",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.07.02",
+        "version": "2025.07.07",
         "warmup_time": -1
     },
     "dry_thermo_benchmarks.TimeSuite.time_temperature_from_potential_temperature": {
@@ -300,7 +300,7 @@
         "setup_cache_key": "dry_thermo_benchmarks:30",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.07.02",
+        "version": "2025.07.07",
         "warmup_time": -1
     },
     "dry_thermo_benchmarks.TimeSuite.time_thickness_hydrostatic": {
@@ -316,7 +316,7 @@
         "setup_cache_key": "dry_thermo_benchmarks:30",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.07.02",
+        "version": "2025.07.07",
         "warmup_time": -1
     },
     "dry_thermo_benchmarks.TimeSuite.time_weighted_continuous_average": {
@@ -332,7 +332,7 @@
         "setup_cache_key": "dry_thermo_benchmarks:30",
         "type": "time",
         "unit": "seconds",
-        "version": "2025.07.02",
+        "version": "2025.07.07",
         "warmup_time": -1
     },
     "dyn_kin_benchmarks.TimeSuite.time_absolute_momentum": {
